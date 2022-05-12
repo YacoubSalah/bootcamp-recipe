@@ -12,7 +12,7 @@ app.get("/sanity", function (req, res) {
 })
 
 app.get("/recipe", function (req, res) {
-    const ingredient = req.query.ingredient
+    const ingredient = req.query.ingredient || ""
     let recipeURL = `http://recipes-goodness.herokuapp.com/recipes/${ingredient}`
     urllib.request(recipeURL, function (err, data) {
         const recipeRawData = JSON.parse(data)
